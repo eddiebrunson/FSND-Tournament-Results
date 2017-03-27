@@ -17,12 +17,26 @@ ___
 ### Locally 
 
 * [Clone or download this repository](https://github.com/eddiebrunson/FSND-Tournament-Results.git)
-
-
 * Ensure you have or download Python [Download Python here](https://www.python.org/downloads/)
-* [Install Google App Engine SDK](https://cloud.google.com/appengine/docs/python/download)
+* Ensure you have or download both [Vagrant]((http://www.vagrantup.com/downloads.html) and [Virtual Box](https://www.virtualbox.org/wiki/Downloads) onto your computer.
 
-* 
+1. Load the Virtual Machine:
+
+* Change directory to the Vagrant project by entering `cd project/vagrant` into the command line
+* To start Vagrant (power up your virtual machine) enter `vagrant up` into the command line 
+* Log into the virtual machine by entering `vagrant ssh` into the command line 
+* Enter `cd /vagrant/tournament` to get inside the project directory 
+
+2. Creat and connect to the database"
+
+* To start PostgreSQL enter `psql`
+* To see the tables and views enter `\i tournament.sql`
+
+3. To test the implementation of the functions in tournament.py:
+
+* Exit PostgreSQL by using this command `/q`
+* Run the test client program by using this command `python tournament_test.py`
+
 
 
 
@@ -32,7 +46,7 @@ ___
 
 ### tournament_test.py passing
 
-![](SS_Welcome_Page.png)  
+![](SS_test_pass.png)  
 
 
 
@@ -46,9 +60,7 @@ ___
 * [Udacity's Intro to Relational Databases](https://www.udacity.com/course/intro-to-relational-databases--ud197)
 * [Tournaments Results: Getting Started Guide](https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true)
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/9.6/static/index.html)
-* [Jinja2 Documentation](http://jinja.pocoo.org/docs/dev/) 
-* [Google App Engine Quickstart](https://cloud.google.com/appengine/docs/python/quickstart)
-* [Google App Engine Python Standard Environment Documentation](https://cloud.google.com/appengine/docs/python/)
+* 
 
 
 
