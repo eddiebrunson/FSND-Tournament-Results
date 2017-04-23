@@ -61,6 +61,7 @@ ___
 * [Tournaments Results: Getting Started Guide](https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true)
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/9.6/static/index.html)
 * [ImportError Troubleshooting](http://stackoverflow.com/questions/12906351/importerror-no-module-named-psycopg2)
+* [Psycopg Documentation](http://initd.org/psycopg/docs/)
 
 
 
