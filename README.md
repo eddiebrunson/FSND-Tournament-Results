@@ -2,7 +2,7 @@
 
 ## Project 4 Overview
 
-![](http://progressed.io/bar/40?title=Progress)
+![](http://progressed.io/bar/100?title=Progress)
 
 The objective of this project was to create a database of a tournamnet using the SWISS-Paring system for pairing up players in each round, whereas players are not eliminated, and each player is paired with another player with the same number of wins as possible. 
 
@@ -27,7 +27,7 @@ ___
 * Log into the virtual machine by entering `vagrant ssh` into the command line 
 * Enter `cd /vagrant/tournament` to get inside the project directory 
 
-2. Creat and connect to the database"
+2. Create and connect to the database"
 
 * To start PostgreSQL enter `psql`
 * To see the tables and views enter `\i tournament.sql`
@@ -46,7 +46,7 @@ ___
 
 ### tournament_test.py passing
 
-![](SS_test_pass.png)  
+![](SS_tests_pass.png)  
 
 
 
@@ -60,14 +60,8 @@ ___
 * [Udacity's Intro to Relational Databases](https://www.udacity.com/course/intro-to-relational-databases--ud197)
 * [Tournaments Results: Getting Started Guide](https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true)
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/9.6/static/index.html)
-* 
+* [ImportError Troubleshooting](http://stackoverflow.com/questions/12906351/importerror-no-module-named-psycopg2)
+*
 
 
-
-
-
----
-## Planned Improvements
-
-* 
 

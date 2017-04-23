@@ -13,29 +13,36 @@ def connect():
 
 def deleteMatches():
     """Remove all the match records from the database."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("DELETE FROM matches;")
-    conn.commit()
-    conn.close()
+    db = connect()
+    db_cursor = db.cursor()
+    query = "DELETE FROM matches"
+    db_cursor.execute(query)
+    db.commit()
+    db.close()
 
 
 def deletePlayers():
     """Remove all the player records from the database."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("DELETE FROM players;")
-    conn.commit()
-    conn.close()
+    db = connect()
+    db_cursor = db.cursor()
+    query = "DELETE FROM players"
+    db_cursor.execute(query)
+    db.commit()
+    db.close()
 
 
 def countPlayers():
     """Returns the number of players currently registered."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("")
-    conn.close()
-    return 
+    db = connect()
+    db_cursor = db.cursor()
+    query = "SELECT COUNT(*) AS num FROM players WHERE id <> 0"
+    db_cursor.execute(query)
+    data = db_cursor.fetchone()
+    db.close()
+    if data:
+        return data[0]
+    else:
+        return '0'
 
 
 def registerPlayer(name):
@@ -47,11 +54,13 @@ def registerPlayer(name):
     Args:
       name: the player's full name (need not be unique).
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute("INSERT into players(name) values (%s);" , (name,))
-    conn.commit()
-    conn.close()
+    db = connect()
+    db_cursor = db.cursor()
+    query = "INSERT INTO players (name) VALUES (%s);"
+    parameter = (name,)
+    db_cursor.execute(query, parameter)
+    db.commit()
+    db.close()
 
 def playerStandings():
     """Returns a list of the players and their win records, sorted by wins.
@@ -66,12 +75,13 @@ def playerStandings():
         wins: the number of matches the player has won
         matches: the number of matches the player has played
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute()
-
-
-    return playerStandings
+    db = connect()
+    db_cursor = db.cursor()
+    query = "SELECT * FROM standings;"
+    db_cursor.execute(query)
+    standings = db_cursor.fetchall()
+    db.close()
+    return standings
 
 
 def reportMatch(winner, loser):
@@ -81,11 +91,13 @@ def reportMatch(winner, loser):
       winner:  the id number of the player who won
       loser:  the id number of the player who lost
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute("INSERT into matches values(%s,%s);" % (winner, loser))
-    conn.commit()
-    conn.close() 
+    db = connect()
+    db_cursor = db.cursor()
+    query = "INSERT INTO matches (winner, loser) VALUES (%s,%s);"
+    parameter = (winner, loser,)
+    db_cursor.execute(query, parameter)
+    db.commit()
+    db.close() 
  
 def swissPairings():
     """Returns a list of pairs of players for the next round of a match.
@@ -104,7 +116,10 @@ def swissPairings():
     """
     standings = playerStandings()
     swissPairings = []
-    
-
+    for i, player in enumerate(standings):
+        if i%2 == 0:
+            pair = (standings[i][0],standings[i][1],standings[i+1][0],
+                    standings[i+1][1])
+            swissPairings.append(pair)
     return swissPairings
 
