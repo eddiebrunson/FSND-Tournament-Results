@@ -10,7 +10,6 @@
 --
 -- Give tables names that makes sense to me, and give columns descriptive 
 -- names 
---
 DROP DATABASE IF EXISTS tournament;
 CREATE DATABASE tournament;
 -- Connect to database

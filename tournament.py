@@ -3,6 +3,7 @@
 # tournament.py -- implementation of a Swiss-system tournament
 #
 # Each function has a docstring that says what it should do   
+#
 import psycopg2
 
 
